@@ -10,7 +10,7 @@ class Invitation < ApplicationRecord
 
   validates :first_name, :presence => true, :unless => :has_not_responded?
   validates :last_name, :presence => true, :unless => :has_not_responded?
-  validates :email_name, :presence => true, :unless => :has_not_responded?
+  validates :email, :presence => true, :unless => :has_not_responded?
   validates :status, :presence => true
   validates :code, :presence => true
 
