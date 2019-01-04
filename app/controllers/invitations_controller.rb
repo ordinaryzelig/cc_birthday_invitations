@@ -4,7 +4,7 @@ class InvitationsController < ApplicationController
   # GET /invitations
   # GET /invitations.json
   def index
-    @invitations = Invitation.all
+    @invitations_by_status = Invitation.all.group_by(&:status)
   end
 
   # GET /invitations/1
