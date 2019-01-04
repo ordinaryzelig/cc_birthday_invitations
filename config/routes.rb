@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   resources :invitations
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'admin' => 'admin_sessions#new_session'
 end

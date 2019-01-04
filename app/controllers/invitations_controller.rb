@@ -1,4 +1,5 @@
 class InvitationsController < ApplicationController
+  before_action :authenticate_admin, :only => %i[index create destroy]
   before_action :set_invitation, only: [:show, :edit, :update, :destroy]
 
   # GET /invitations
