@@ -1,0 +1,44 @@
+<%= form_with(model: invitation, local: true) do |form| %>
+  <% if invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+
+      <ul>
+      <% invitation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.collection_select :status, Invitation.statuses.keys, :to_s, :humanize %>
+  </div>
+
+  <% if invitation.code %>
+    <div class="field">
+      <%= form.label :code %>
+      <%= form.text_field :code, :disabled => invitation.code %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
