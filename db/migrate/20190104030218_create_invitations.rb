@@ -1,6 +1,6 @@
 class CreateInvitations < ActiveRecord::Migration[5.2]
   def change
-    execute 'CREATE EXTENSION citext'
+    enable_extension :citext
 
     create_table :invitations do |t|
       t.citext :first_name
@@ -11,5 +11,7 @@ class CreateInvitations < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :invitations, :code, :unique => true
   end
 end

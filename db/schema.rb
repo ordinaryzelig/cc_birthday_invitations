@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_01_04_030218) do
     t.citext "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_invitations_on_code", unique: true
   end
 
 end
