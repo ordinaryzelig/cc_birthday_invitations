@@ -1,3 +1,5 @@
+require 'csv'
+
 class InvitationsController < ApplicationController
   before_action :require_admin, :only => %i[index create new]
   before_action :authenticate_admin, :only => %i[show edit]
@@ -6,7 +8,10 @@ class InvitationsController < ApplicationController
   # GET /invitations
   # GET /invitations.json
   def index
-    @invitations_by_status = Invitation.all.group_by(&:status)
+    respond_to do |format|
+      format.html { @invitations_by_status = Invitation.all.group_by(&:status) }
+      format.csv { send_data csv }
+    end
   end
 
   # GET /invitations/1
@@ -70,5 +75,15 @@ class InvitationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
       params.require(:invitation).permit(:first_name, :last_name, :email, :status)
+    end
+
+    def csv
+      CSV.generate(headers: true) do |csv|
+        column_names = Invitation.column_names
+        csv << column_names
+        Invitation.order(:status, :last_name, :first_name).find_each do |invitation|
+          csv << invitation.attributes.values_at(*column_names)
+        end
+      end
     end
 end
