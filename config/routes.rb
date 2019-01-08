@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :invitations, :only => %i[index show edit update new create] do
     resources :song_requests, :only => %i[create destroy]
   end
+  resources :song_requests, :only => %i[index]
 end

@@ -30,7 +30,7 @@
 <h3>Song Requests</h3>
 
 <% if @invitation.persisted? && (@invitation.accepted? || logged_in_as_admin?) %>
-  <%= render 'song_requests/list', :song_requests => @invitation.song_requests %>
+  <%= render 'song_requests/list', :song_requests => @invitation.song_requests, :editable => true %>
   <%= render 'song_requests/form', :song_request => @song_request %>
 <% end %>
 
