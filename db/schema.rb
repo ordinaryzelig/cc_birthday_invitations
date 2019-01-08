@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_04_030218) do
+ActiveRecord::Schema.define(version: 2019_01_08_035254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -28,4 +28,14 @@ ActiveRecord::Schema.define(version: 2019_01_04_030218) do
     t.index ["code"], name: "index_invitations_on_code", unique: true
   end
 
+  create_table "song_requests", force: :cascade do |t|
+    t.bigint "invitation_id"
+    t.string "title", null: false
+    t.string "artist", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invitation_id"], name: "index_song_requests_on_invitation_id"
+  end
+
+  add_foreign_key "song_requests", "invitations"
 end

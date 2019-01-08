@@ -27,5 +27,11 @@
   <%= @invitation.status.humanize %>
 </p>
 
-<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
-<%= link_to 'Back', invitations_path %>
+<h3>Song Requests</h3>
+
+<% if @invitation.persisted? && (@invitation.accepted? || logged_in_as_admin?) %>
+  <%= render 'song_requests/list', :song_requests => @invitation.song_requests %>
+  <%= render 'song_requests/form', :song_request => @song_request %>
+<% end %>
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %>

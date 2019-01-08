@@ -1,5 +1,7 @@
 class Invitation < ApplicationRecord
 
+  has_many :song_requests
+
   enum :status => {
     :undecided => 0,
     :accepted  => 1,

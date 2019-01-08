@@ -1,0 +1,10 @@
+<ul>
+  <% @invitation.song_requests.each do |song_request| %>
+    <li>
+      <strong><%= song_request.title %></strong>
+      by
+      <%= song_request.artist %>
+      <%= link_to 'Delete', invitation_song_request_url(song_request.invitation, song_request), :method => :delete %>
+    </li>
+  <% end %>
+</ul>

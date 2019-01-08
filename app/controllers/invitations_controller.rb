@@ -17,6 +17,7 @@ class InvitationsController < ApplicationController
   # GET /invitations/1
   # GET /invitations/1.json
   def show
+    @song_request = SongRequest.new(:invitation => @invitation)
   end
 
   # GET /invitations/new
