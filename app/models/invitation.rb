@@ -14,6 +14,10 @@ class Invitation < ApplicationRecord
   validates :status, :presence => true
   validates :code, :presence => true
 
+  def to_param
+    code
+  end
+
 private
 
   def generate_code
