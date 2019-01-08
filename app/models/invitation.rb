@@ -1,16 +1,16 @@
 class Invitation < ApplicationRecord
 
   enum :status => {
-    :has_not_responded => 0,
+    :undecided => 0,
     :accepted          => 1,
     :declined          => 2,
   }
 
   before_validation :generate_code, :unless => :code?
 
-  validates :first_name, :presence => true, :unless => :has_not_responded?
-  validates :last_name, :presence => true, :unless => :has_not_responded?
-  validates :email, :presence => true, :unless => :has_not_responded?
+  validates :first_name, :presence => true, :unless => :undecided?
+  validates :last_name, :presence => true, :unless => :undecided?
+  validates :email, :presence => true, :unless => :undecided?
   validates :status, :presence => true
   validates :code, :presence => true
 

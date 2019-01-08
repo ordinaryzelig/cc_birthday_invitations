@@ -31,11 +31,13 @@
     <%= form.collection_select :status, Invitation.statuses.keys, :to_s, :humanize %>
   </div>
 
-  <% if invitation.code %>
-    <div class="field">
-      <%= form.label :code %>
-      <%= form.text_field :code, :disabled => invitation.code %>
-    </div>
+  <% if logged_in_as_admin? %>
+    <% if invitation.code %>
+      <div class="field">
+        <%= form.label :code %>
+        <%= form.text_field :code, :disabled => invitation.code %>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="actions">

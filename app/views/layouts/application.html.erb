@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <nav>
+      <% if logged_in_as_admin? %>
+        <%= link_to 'Logout admin', logout_admin_url %>
+      <% end %>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
