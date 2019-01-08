@@ -2,11 +2,12 @@ class Invitation < ApplicationRecord
 
   enum :status => {
     :undecided => 0,
-    :accepted          => 1,
-    :declined          => 2,
+    :accepted  => 1,
+    :declined  => 2,
   }
 
   before_validation :generate_code, :unless => :code?
+  before_validation :generate_dj_name, :if => -> { dj_name.blank? && accepted? }
 
   validates :first_name, :presence => true, :unless => :undecided?
   validates :last_name, :presence => true, :unless => :undecided?
@@ -22,6 +23,10 @@ private
 
   def generate_code
     self.code = SecureRandom.hex(3)
+  end
+
+  def generate_dj_name
+    self.dj_name = DJName.rand
   end
 
 end

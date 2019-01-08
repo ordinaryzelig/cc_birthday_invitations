@@ -8,6 +8,7 @@ class CreateInvitations < ActiveRecord::Migration[5.2]
       t.citext :email
       t.integer :status, :default => 0, :null => false
       t.citext :code, :null => false
+      t.string :dj_name
 
       t.timestamps
     end

@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_01_04_030218) do
     t.citext "email"
     t.integer "status", default: 0, null: false
     t.citext "code", null: false
+    t.string "dj_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_invitations_on_code", unique: true

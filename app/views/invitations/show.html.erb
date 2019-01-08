@@ -10,6 +10,13 @@
   <%= @invitation.last_name %>
 </p>
 
+<% if @invitation.accepted? %>
+  <p>
+    <strong>DJ Name:</strong>
+    <%= @invitation.dj_name %>
+  </p>
+<% end %>
+
 <p>
   <strong>Email:</strong>
   <%= @invitation.email %>
