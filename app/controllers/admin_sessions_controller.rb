@@ -1,9 +1,8 @@
 class AdminSessionsController < ApplicationController
 
-  before_action :authenticate_admin
-
-  def new
-    redirect_to invitations_url
+  def destroy
+    authenticate_with_http_basic {}
+    render :status => 401
   end
 
 end
