@@ -2,5 +2,8 @@
 
 <%= render 'form', invitation: @invitation %>
 
-<%= link_to 'Show', @invitation %> |
-<%= link_to 'Back', invitations_path %>
+<%= link_to 'Cancel', @invitation %>
+<% if logged_in_as_admin? %>
+  |
+  <%= link_to 'Back', invitations_path %>
+<% end %>

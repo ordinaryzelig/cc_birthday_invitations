@@ -1,5 +1,5 @@
 class SongRequestsController < ApplicationController
-  before_action :set_invitation
+  before_action :set_invitation, :only => %i[create destroy]
   before_action :set_song_request, only: [:destroy]
 
   # GET /song_requests
