@@ -15,7 +15,7 @@
   <%= @invitation.email %>
 </p>
 
-<% if @invitation.accepted? %>
+<% if @invitation.going? %>
   <p>
     <strong>DJ Name:</strong>
     <%= @invitation.dj_name %>
@@ -30,7 +30,7 @@
 
 <h3>Song Requests</h3>
 
-<% if @invitation.persisted? && @invitation.accepted? %>
+<% if @invitation.persisted? && @invitation.going? %>
   <%= render 'song_requests/list', :song_requests => @invitation.song_requests, :editable => true %>
   <%= render 'song_requests/form', :song_request => @song_request %>
 <% end %>

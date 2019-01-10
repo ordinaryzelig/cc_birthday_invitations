@@ -4,12 +4,12 @@ class Invitation < ApplicationRecord
 
   enum :status => {
     :undecided => 0,
-    :accepted  => 1,
+    :going     => 1,
     :declined  => 2,
   }
 
   before_validation :generate_code, :unless => :code?
-  before_validation :generate_dj_name, :if => -> { dj_name.blank? && accepted? }
+  before_validation :generate_dj_name, :if => -> { dj_name.blank? && going? }
 
   validates :first_name, :presence => true, :unless => :undecided?
   validates :last_name, :presence => true, :unless => :undecided?
