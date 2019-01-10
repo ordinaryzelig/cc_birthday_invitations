@@ -5,7 +5,7 @@ class Invitation < ApplicationRecord
   enum :status => {
     :undecided => 0,
     :going     => 1,
-    :declined  => 2,
+    :not_going => 2,
   }
 
   before_validation :generate_code, :unless => :code?
