@@ -13,29 +13,29 @@
 
   <div class="form-group">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name, :required => !invitation.undecided?, :class => 'form-control' %>
+    <%= form.text_field :first_name, :required => !invitation.undecided?, :class => 'form-control form-control-lg' %>
   </div>
 
   <div class="form-group">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name, :required => !invitation.undecided?, :class => 'form-control' %>
+    <%= form.text_field :last_name, :required => !invitation.undecided?, :class => 'form-control form-control-lg' %>
   </div>
 
   <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email, :required => !invitation.undecided?, :class => 'form-control' %>
+    <%= form.text_field :email, :required => !invitation.undecided?, :class => 'form-control form-control-lg' %>
   </div>
 
   <div class="form-group">
     <%= form.label :status %>
-    <%= form.collection_select :status, Invitation.statuses.keys, :to_s, :humanize, {}, :class => 'form-control' %>
+    <%= form.collection_select :status, Invitation.statuses.keys, :to_s, :humanize, {}, :class => 'form-control form-control-lg' %>
   </div>
 
   <% if logged_in_as_admin? %>
     <% if invitation.code %>
       <div class="form-group">
         <%= form.label :code %>
-        <%= form.text_field :code, :disabled => invitation.code, :class => 'form-control' %>
+        <%= form.text_field :code, :disabled => invitation.code, :class => 'form-control form-control-lg' %>
       </div>
     <% end %>
   <% end %>

@@ -1,0 +1,13 @@
+<%= form_with :url => find_invitations_path, :method => :get, :local => true do |f| %>
+  <% if params[:code] %>
+    <div class="text-danger">Couldn't find invitation</div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :code, :value => params[:code], :placeholder => 'Invitation code', :class => 'form-control form-control-lg', :required => true %>
+  </div>
+  <%= f.submit 'Find', :class => 'btn-block btn-primary' %>
+  <span class="text-muted">
+    If you lost your code, please contact Felice at 858-735-9790.
+  </span>
+<% end %>

@@ -13,6 +13,10 @@
         <li class="nav-item">
           <%= link_to 'Song Requests', invitation_path(@invitation), :class => 'nav-link' %>
         </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'RSVP', find_invitations_path, :class => 'nav-link' %>
+        </li>
       <% end %>
       <% if logged_in_as_admin? %>
         <li class="nav-item">

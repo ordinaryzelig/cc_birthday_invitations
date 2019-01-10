@@ -67,6 +67,12 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def find
+    if params[:code] && invitation = Invitation.find_by_code(params[:code])
+      redirect_to invitation_path(invitation)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_invitation
