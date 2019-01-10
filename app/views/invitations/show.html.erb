@@ -10,6 +10,11 @@
   <%= @invitation.last_name %>
 </p>
 
+<p>
+  <strong>Email:</strong>
+  <%= @invitation.email %>
+</p>
+
 <% if @invitation.accepted? %>
   <p>
     <strong>DJ Name:</strong>
@@ -18,20 +23,19 @@
 <% end %>
 
 <p>
-  <strong>Email:</strong>
-  <%= @invitation.email %>
-</p>
-
-<p>
   <strong>Status:</strong>
   <%= @invitation.status.humanize %>
 </p>
 
+<%= link_to 'Edit', edit_invitation_path(@invitation) %>
+<% if logged_in_as_admin? %>
+  |
+  <%= link_to 'Back', invitations_path %>
+<% end %>
+
 <h3>Song Requests</h3>
 
-<% if @invitation.persisted? && (@invitation.accepted? || logged_in_as_admin?) %>
+<% if @invitation.persisted? && @invitation.accepted? %>
   <%= render 'song_requests/list', :song_requests => @invitation.song_requests, :editable => true %>
   <%= render 'song_requests/form', :song_request => @song_request %>
 <% end %>
-
-<%= link_to 'Edit', edit_invitation_path(@invitation) %>

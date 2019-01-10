@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, :required => true %>
+  <div class="form-group">
+    <%= form.text_field :title, :required => true, :class => 'form-control', :placeholder => 'Title' %>
   </div>
 
-  <div class="field">
-    <%= form.label :artist %>
-    <%= form.text_field :artist, :required => true %>
+  <div class="form-group">
+    <%= form.text_field :artist, :required => true, :class => 'form-control', :placeholder => 'Artist' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Add song', :class => 'btn btn-primary' %>
   </div>
 <% end %>
