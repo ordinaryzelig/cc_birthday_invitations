@@ -1,6 +1,6 @@
 <h2><%= status.titleize %></h2>
 
-<table>
+<table class="table-sm">
   <thead>
     <tr>
       <th>First name</th>
@@ -16,8 +16,7 @@
       <tr>
         <td><%= invitation.first_name %></td>
         <td><%= invitation.last_name %></td>
-        <td><%= invitation.email %></td>
-        <td><%= invitation.status.humanize %></td>
+        <td><%= link_to invitation.email, "mailto:#{invitation.email}" if invitation.email %></td>
         <td><%= invitation.code %></td>
         <td><%= link_to 'Show', invitation %></td>
         <td><%= link_to 'Edit', edit_invitation_path(invitation) %></td>
