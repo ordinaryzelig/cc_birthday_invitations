@@ -28,9 +28,9 @@
   <%= link_to 'Change', edit_invitation_path(@invitation), :class => 'btn-sm btn-primary' %>
 </p>
 
-<h3>Song Requests</h3>
-
 <% if @invitation.persisted? && @invitation.going? %>
+  <h3>Song Requests</h3>
+
   <%= render 'song_requests/list', :song_requests => @invitation.song_requests, :editable => true %>
   <%= render 'song_requests/form', :song_request => @song_request %>
 <% end %>
