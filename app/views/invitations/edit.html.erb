@@ -1,6 +1,10 @@
 <h1>Editing Invitation</h1>
 
-<%= render 'form', invitation: @invitation %>
+<div class="row">
+  <div class="col">
+    <%= render 'form', invitation: @invitation %>
+  </div>
+</div>
 
 <%= link_to 'Cancel', @invitation %>
 <% if logged_in_as_admin? %>
