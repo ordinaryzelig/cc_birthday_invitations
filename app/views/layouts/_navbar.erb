@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">Club CC</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <% if @invitation&.persisted? %>
+        <li class="nav-item">
+          <%= link_to 'RSVP', edit_invitation_path(@invitation), :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Song Requests', invitation_path(@invitation), :class => 'nav-link' %>
+        </li>
+      <% end %>
+      <% if logged_in_as_admin? %>
+        <li class="nav-item">
+          <%= link_to 'Guest list', invitations_path, :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Logout admin', {:logout => true}, :class => 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

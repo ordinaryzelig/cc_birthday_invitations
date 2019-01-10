@@ -5,9 +5,3 @@
     <%= render 'form', invitation: @invitation %>
   </div>
 </div>
-
-<%= link_to 'Cancel', @invitation %>
-<% if logged_in_as_admin? %>
-  |
-  <%= link_to 'Back', invitations_path %>
-<% end %>

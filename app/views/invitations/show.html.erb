@@ -25,13 +25,8 @@
 <p>
   <strong>Status:</strong>
   <%= @invitation.status.humanize %>
+  <%= link_to 'Change', edit_invitation_path(@invitation), :class => 'btn-sm btn-primary' %>
 </p>
-
-<%= link_to 'Edit', edit_invitation_path(@invitation) %>
-<% if logged_in_as_admin? %>
-  |
-  <%= link_to 'Back', invitations_path %>
-<% end %>
 
 <h3>Song Requests</h3>
 
