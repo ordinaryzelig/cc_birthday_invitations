@@ -10,11 +10,7 @@
   </head>
 
   <body>
-    <nav>
-      <% if logged_in_as_admin? %>
-        <%= link_to 'Logout admin', :logout => true %>
-      <% end %>
-    </nav>
+    <%= render 'layouts/admin_navbar' if logged_in_as_admin? %>
 
     <%= yield %>
   </body>
