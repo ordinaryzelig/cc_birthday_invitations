@@ -1,12 +1,12 @@
-<ul>
+<ol>
   <% song_requests.each do |song_request| %>
     <li>
       <strong><%= song_request.title %></strong>
       by
-      <%= song_request.artist %>
+      <span class="font-italic"><%= song_request.artist %></span>
       <% if editable %>
-        <%= link_to 'Delete', invitation_song_request_url(song_request.invitation, song_request), :method => :delete %>
+        <%= link_to 'Remove', invitation_song_request_url(song_request.invitation, song_request), :method => :delete, :class => 'btn-sm btn-danger' %>
       <% end %>
     </li>
   <% end %>
-</ul>
+</ol>
