@@ -31,6 +31,10 @@
 <% if @invitation.persisted? && @invitation.going? %>
   <h3>Song Requests</h3>
 
+  <p>
+  Let us know what music you would like to hear at the party.
+  </p>
+
   <%= render 'song_requests/list', :song_requests => @invitation.song_requests, :editable => true %>
   <%= render 'song_requests/form', :song_request => @song_request %>
 <% end %>

@@ -15,7 +15,7 @@ class SongRequestsController < ApplicationController
 
     respond_to do |format|
       if @song_request.save
-        format.html { redirect_to @invitation, notice: 'Song request was successfully created.' }
+        format.html { redirect_to @invitation }
       else
         format.html { render 'invitations/show' }
       end
@@ -26,7 +26,7 @@ class SongRequestsController < ApplicationController
   # DELETE /song_requests/1.json
   def destroy
     @song_request.destroy
-    redirect_to invitation_url(@invitation), notice: 'Song request deleted.'
+    redirect_to invitation_url(@invitation)
   end
 
   private
