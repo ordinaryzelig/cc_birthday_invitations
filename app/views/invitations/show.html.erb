@@ -23,7 +23,8 @@
   <h3 class="mt-5">Song Requests</h3>
 
   <p>
-  Let us know what songs you would like to hear at the party.
+  We need your help, <%= @invitation.dj_name %>.
+  Let us know what songs you would should play at the party.
   </p>
 
   <%= render 'song_requests/list', :song_requests => @invitation.song_requests, :editable => true %>

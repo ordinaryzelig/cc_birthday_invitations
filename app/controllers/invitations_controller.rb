@@ -56,10 +56,8 @@ class InvitationsController < ApplicationController
       if @invitation.update(invitation_params)
         format.html do
           notice =
-            if @invitation.dj_name_previous_change&.first.nil?
-              "Welcome #{@invitation.dj_name}"
-            else
-              'Invitation was successfully updated.'
+            if @invitation.going?
+              "We're glad you can join us!"
             end
           redirect_to @invitation, notice: notice
         end
