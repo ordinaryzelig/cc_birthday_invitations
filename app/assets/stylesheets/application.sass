@@ -7,8 +7,10 @@
 body
   background-image: image_url('disco-purple.jpg')
   background-repeat: no-repeat
-  background-size: auto 100%
   background-attachment: fixed
+  background-size: auto 100%
+  @include media-breakpoint-up(lg)
+    background-size: 100%
 
   color: white
 
