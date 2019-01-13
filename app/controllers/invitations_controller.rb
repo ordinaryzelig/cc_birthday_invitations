@@ -55,9 +55,10 @@ class InvitationsController < ApplicationController
     respond_to do |format|
       if @invitation.update(invitation_params)
         format.html do
-          notice =
+          notice = 'Thanks for RSVPing.'
+          notice +=
             if @invitation.going?
-              "We're glad you can join us!"
+              " We're glad you can join us!"
             end
           redirect_to @invitation, notice: notice
         end
