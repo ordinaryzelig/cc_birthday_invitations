@@ -3,9 +3,9 @@ class Invitation < ApplicationRecord
   has_many :song_requests
 
   enum :status => {
-    :undecided => 0,
     :going     => 1,
     :not_going => 2,
+    :undecided => 0,
   }
 
   before_validation :generate_code, :unless => :code?
@@ -19,6 +19,13 @@ class Invitation < ApplicationRecord
 
   def to_param
     code
+  end
+
+  def name
+    [
+      first_name,
+      last_name,
+    ].join(' ')
   end
 
 private

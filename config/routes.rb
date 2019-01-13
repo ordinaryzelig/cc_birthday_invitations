@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'pages#home'
+  get 'admin' => 'invitations#index'
 
   resources :invitations, :only => %i[index show edit update new create] do
     collection do
