@@ -6,28 +6,40 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
+
       <% if @invitation&.persisted? %>
         <li class="nav-item">
           <%= link_to 'RSVP', edit_invitation_path(@invitation), :class => 'nav-link' %>
         </li>
+
         <% if @invitation.going? %>
           <li class="nav-item">
             <%= link_to 'Song Requests', invitation_path(@invitation), :class => 'nav-link' %>
           </li>
         <% end %>
+
       <% else %>
         <li class="nav-item">
           <%= link_to 'RSVP', find_invitations_path, :class => 'nav-link' %>
         </li>
       <% end %>
+
       <% if logged_in_as_admin? %>
         <li class="nav-item">
           <%= link_to 'Guest list', invitations_path, :class => 'nav-link' %>
         </li>
         <li class="nav-item">
+          <%= link_to 'Song list', song_requests_path, :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
           <%= link_to 'Logout admin', {:logout => true}, :class => 'nav-link' %>
         </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Admin', admin_url, :class => 'nav-link' %>
+        </li>
       <% end %>
+
     </ul>
   </div>
 </nav>
