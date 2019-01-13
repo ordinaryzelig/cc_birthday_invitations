@@ -1,38 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @invitation.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @invitation.last_name %>
-</p>
+<h1><%= @invitation.name %></h1>
+<% if @invitation.going? %>
+  <h4>
+    <span class="small">a.k.a.</span>
+    <%= @invitation.dj_name %>
+  </h4>
+<% end %>
 
 <p>
   <strong>Email:</strong>
   <%= @invitation.email %>
 </p>
 
-<% if @invitation.going? %>
-  <p>
-    <strong>DJ Name:</strong>
-    <%= @invitation.dj_name %>
-  </p>
-<% end %>
-
 <p>
-  <strong>Status:</strong>
+  <strong>Party status:</strong>
   <%= @invitation.status.humanize %>
   <%= link_to 'Change', edit_invitation_path(@invitation), :class => 'btn-sm btn-primary' %>
 </p>
 
 <% if @invitation.persisted? && @invitation.going? %>
-  <h3>Song Requests</h3>
+  <h3 class="mt-5">Song Requests</h3>
 
   <p>
-  Let us know what music you would like to hear at the party.
+  Let us know what songs you would like to hear at the party.
   </p>
 
   <%= render 'song_requests/list', :song_requests => @invitation.song_requests, :editable => true %>
