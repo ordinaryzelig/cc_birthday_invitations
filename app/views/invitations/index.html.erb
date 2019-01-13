@@ -7,7 +7,7 @@
 <% Invitation.statuses.keys.each do |status| %>
   <div class="row mt-4">
     <div class="col">
-      <%= render 'for_status', :invitations => @invitations_by_status.fetch(status), :status => status %>
+      <%= render 'for_status', :invitations => @invitations_by_status.fetch(status, []), :status => status %>
     </div>
   </div>
 <% end %>
